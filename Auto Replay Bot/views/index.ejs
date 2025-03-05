@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtime Chat UI</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">Realtime Chat</div>
+        <div class="chat-box">
+            <div id="receiver" class="message received"></div>
+            <div id="sender" class="message sent"></div>
+        </div>
+        <div class="chat-input">
+            <input id="input" type="text" placeholder="Type a message..." />
+            <button id="btn" >Send</button>
+        </div>
+    </div>
+
+    <!-- ✅ Fix the script order -->
+    <script src="/socket.io/socket.io.js"></script>  <!-- Load this first -->
+    <script src="/js/front.js"></script>  <!-- Load this after -->
+</body>
+</html>
