@@ -1,25 +1,28 @@
-console.log("Frontend is connected");
-let socket = io("http://localhost:3000/?");
+document.addEventListener("DOMContentLoaded", () => {
+    let socket = io("http://localhost:3000/?");
 
-let messageInput = document.querySelector("#messageInput");
-let sendButton = document.querySelector("#sendButton");
-let messageArea = document.querySelector("#messageArea");
+    let messageInput = document.querySelector("#messageInput");
+    let sendButton = document.querySelector("#sendButton");
+    let messageArea = document.querySelector("#messageArea");
 
-sendButton.addEventListener("click",() => {
-    let message = messageInput.value;
-    if (message.trim() === "") return;
-    let chat = document.createElement("p")
-    chat.innerText = `you: ${message}`;
-    chat.style.color = "green";
-    messageArea.appendChild(chat);
-    socket.emit("send_message",message);
-    messageInput.value = "";
-})
+    sendButton.addEventListener("click", () => {
+        let message = messageInput.value.trim();
+        if (message === "") return;
 
+        let chats = document.createElement("div");
+        chats.classList.add("chat");
+        chats.innerText = `You: ${message}`;
+        messageArea.appendChild(chats);
 
-socket.on("Receive_message",(message) => {
-    let div = document.createElement("div");
-    div.classList.add("show");
-    div.textContent =`Friend:${message}` ;
-    messageArea.appendChild(div);
-})
+        socket.emit("send_message", message);
+        messageInput.value = "";
+    });
+
+    socket.on("Receive_message", (message) => {
+        let div = document.createElement("div");
+        div.classList.add("bubble");
+        div.textContent = `Friend: ${message}`;
+        messageArea.appendChild(div);
+    });
+
+});

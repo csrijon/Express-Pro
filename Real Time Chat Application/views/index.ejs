@@ -1,28 +1,41 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Time Chat Web App</title>
+    <title>Real-Time Chat App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Srijon Chat App</h1>
-    <h2>Chat App using Socket.io</h2>
-
-    <form id="form">
-        <div>
-            <label for="myname">Name:</label>
-            <input type="text" id="myname" placeholder="Enter your name">
+    <div id="root"></div> 
+    <div id="chatContainer">
+        <!-- Chat Header -->
+        <div id="chatHeader">
+            <img src="/image/srijon link.jpeg" alt="User">
+            <div class="chatInfo">
+                <h3>Chat with Srijon</h3>
+                <!-- <p>1767 Messages</p> -->
+            </div>
+            <div class="icons">
+                <i class="material-icons">videocam</i>
+                <i class="material-icons">call</i>
+                <i class="material-icons">more_vert</i>
+            </div>
         </div>
-        <div>
-            <label for="messageInput">Message:</label>
-            <input type="text" id="messageInput" placeholder="Type your message">
-        </div>
-        <button id="sendButton" type="button">Send</button>
-    </form>
 
-    <div id="messageArea"></div>
+        <!-- Chat Messages -->
+        <div id="messageArea">
+        </div>
+
+        <!-- Chat Input -->
+        <div id="messageInputArea">
+            <i class="material-icons emoji">mood</i>
+            <input type="text" id="messageInput" placeholder="Type your message...">
+            <button id="sendButton"><i class="material-icons">send</i></button>
+        </div>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/clint.js"></script>
