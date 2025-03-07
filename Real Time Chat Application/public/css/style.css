@@ -1,61 +1,156 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(to right, #3b4371, #2c2f59);
     text-align: center;
     margin: 0;
     padding: 20px;
 }
 
+/* Header */
 h1 {
-    color: green;
-    font-size: 28px;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 5px;
 }
 
 h2 {
-    color: #333;
-    font-size: 20px;
+    color: #ddd;
+    font-size: 18px;
+    margin-bottom: 15px;
 }
 
+/* Form Styles */
 form {
-    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
 }
 
 input {
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    background: #3e4276;
+    color: white;
+    font-size: 14px;
 }
 
+input::placeholder {
+    color: #bbb;
+}
+
+/* Send Button */
 button {
-    padding: 10px 15px;
-    background-color: blue;
+    padding: 12px 18px;
+    background-color: #25d366;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 button:hover {
-    background-color: darkblue;
+    background-color: #1eb153;
 }
 
+/* Chat Messages Area */
 #messageArea {
-    /* margin-top: 20px;
-    padding: 10px;
-    background: rgb(125, 58, 58);
-    border-radius: 5px;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 400px;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: linear-gradient(to right, #4a547f, #2c2f59);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    scroll-behavior: smooth;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+/* Message Bubbles */
+.message {
+    max-width: 75%;
+    padding: 12px;
+    border-radius: 18px;
+    font-size: 14px;
+    word-wrap: break-word;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Sent Messages */
+.sent {
+    background: #25d366;
+    color: white;
+    align-self: flex-end;
+    text-align: right;
+    border-bottom-right-radius: 5px;
+}
+
+/* Received Messages */
+.received {
+    background: #4475d4;
+    color: white;
+    align-self: flex-start;
     text-align: left;
-    height: 100vh;
-    display: block;
-    overflow-y: scroll;
-    color: rgb(50, 232, 18); */
-    color: #333;
-    background-color: aqua;
-    padding: 10px;
-    height: 100vh;
-    display: block;
+    border-bottom-left-radius: 5px;
+}
+
+/* Typing Animation */
+.typing {
+    font-size: 14px;
+    font-style: italic;
+    color: #bbb;
+    display: flex;
+    align-items: center;
+}
+
+.typing span {
+    height: 8px;
+    width: 8px;
+    margin: 0 2px;
+    background: white;
+    border-radius: 50%;
+    display: inline-block;
+    animation: blink 1.5s infinite;
+}
+
+.typing span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    #messageArea {
+        width: 100%;
+        border-radius: 0;
+    }
 }
