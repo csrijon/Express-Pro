@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/css/habiit.css">
+  <title>Add New Habit</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Material Symbols Outlined -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    rel="stylesheet"
+  />
+
+  <!-- Your custom styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <span class="material-symbols-outlined back-icon">arrow_back</span>
+      <h1>Add New Habit</h1>
+      <span class="visibility-placeholder">arrow_back</span>
+    </header>
+
+    <div class="input-group">
+      <label for="habit-name">Habit name</label>
+      <input type="text" id="habit-name" placeholder="" />
+    </div>
+
+    <section class="periodicity">
+      <p class="section-title">Set periodicity</p>
+      <div class="days">
+        <div class="day active">M</div>
+        <div class="day">T</div>
+        <div class="day">W</div>
+        <div class="day">T</div>
+        <div class="day">F</div>
+        <div class="day">S</div>
+        <div class="day">S</div>
+      </div>
+    </section>
+
+    <section class="reminders">
+      <p class="section-title">When should we remind you?</p>
+      <div class="reminder-buttons">
+        <div class="reminder active">Morning</div>
+        <div class="reminder">Noon</div>
+        <div class="reminder">Evening</div>
+      </div>
+    </section>
+
+    <button class="add-btn">Add new habit</button>
+  </div>
+</body>
+</html>

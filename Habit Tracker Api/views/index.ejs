@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Habit Tracker</title>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=home" />
+  <link rel="stylesheet" href="./css/style.css"/>
+</head>
+<body>
+  <div class="app-container">
+    <!-- HEADER -->
+    <header class="header">
+      <div>
+        <div class="today-label">Today,</div>
+        <div class="today-date">August 2</div>
+      </div>
+      <div class="profile-icon">
+        <span class="material-icons">account_circle</span>
+      </div>
+    </header>
+
+    <!-- WEEKLY CALENDAR -->
+    <nav class="calendar">
+      <div class="day-cell">
+        <div class="day-name">M</div>
+        <div class="day-num selected">2</div>
+      </div>
+      <div class="day-cell">
+        <div class="day-name">T</div>
+        <div class="day-num">3</div>
+      </div>
+      <div class="day-cell">
+        <div class="day-name">W</div>
+        <div class="day-num">4</div>
+      </div>
+      <div class="day-cell">
+        <div class="day-name">T</div>
+        <div class="day-num">5</div>
+      </div>
+      <div class="day-cell">
+        <div class="day-name">F</div>
+        <div class="day-num">6</div>
+      </div>
+      <div class="day-cell">
+        <div class="day-name">S</div>
+        <div class="day-num">7</div>
+      </div>
+      <div class="day-cell">
+        <div class="day-name">S</div>
+        <div class="day-num">8</div>
+      </div>
+    </nav>
+
+    <!-- MY HABITS -->
+    <section class="habits-section">
+      <h2 class="section-title">My habits</h2>
+      <ul class="habit-list">
+        <li class="habit-item">
+          <div class="habit-text">
+            <div class="habit-title">Read 10 pages of a book</div>
+            <div class="habit-sub">Usually completed at 10.15PM</div>
+          </div>
+          <button class="habit-btn">
+            <span class="material-icons">radio_button_unchecked</span>
+          </button>
+        </li>
+        <li class="habit-item">
+          <div class="habit-text">
+            <div class="habit-title">Meditate for 5 minutes</div>
+            <div class="habit-sub">Completed at 7.20AM</div>
+          </div>
+          <button class="habit-btn done">
+            <span class="material-icons">check_circle</span>
+          </button>
+        </li>
+        <li class="habit-item">
+          <div class="habit-text">
+            <div class="habit-title">Have fruits for breakfast</div>
+            <div class="habit-sub">Completed at 7.20AM</div>
+          </div>
+          <button class="habit-btn done">
+            <span class="material-icons">check_circle</span>
+          </button>
+        </li>
+        <li class="habit-item">
+          <div class="habit-text">
+            <div class="habit-title">Have healthy lunch</div>
+            <div class="habit-sub">Usually completed at 12.15PM</div>
+          </div>
+          <button class="habit-btn">
+            <span class="material-icons">radio_button_unchecked</span>
+          </button>
+        </li>
+        <li class="habit-item">
+          <div class="habit-text">
+            <div class="habit-title">HIIT exercise</div>
+            <div class="habit-sub">Usually completed at 10.15PM</div>
+          </div>
+          <button class="habit-btn">
+            <span class="material-icons">radio_button_unchecked</span>
+          </button>
+        </li>
+        <!-- Add more items here -->
+      </ul>
+    </section>
+  </div>
+  <section class="icon-section" >
+    <nav class="bottom-nav">
+      <button class="icon-btn"><span class="material-icons">home</span></button>
+      <button class="fab"><span class="material-icons">add</span></button>
+      <button class="icon-btn stats-btn"><span class="material-icons">bar_chart</span></button>
+    </nav>
+   </section>
+</body>
+</html>
