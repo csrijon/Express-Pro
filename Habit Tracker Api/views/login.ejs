@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Signup</title>
+  <link rel="stylesheet" href="/css/login.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="tab-buttons">
+      <button class="active" onclick="showForm('login')">Login</button>
+      <button onclick="showForm('signup')">Signup</button>
+    </div>
+
+    <form id="login" class="form active">
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button class="btn">Login</button>
+      <small>Forgot your password?</small>
+    </form>
+
+    <form id="signup" class="form">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button class="btn">Signup</button>
+    </form>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('login');
+    const signupForm = document.getElementById('signup');
+    const buttons = document.querySelectorAll('.tab-buttons button');
+
+    function showForm(type) {
+      if (type === 'login') {
+        loginForm.classList.add('active');
+        signupForm.classList.remove('active');
+        buttons[0].classList.add('active');
+        buttons[1].classList.remove('active');
+      } else {
+        signupForm.classList.add('active');
+        loginForm.classList.remove('active');
+        buttons[1].classList.add('active');
+        buttons[0].classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>
