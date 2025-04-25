@@ -11,3 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   
+let date = new Date();
+let todaydate = document.querySelector(".today-date");
+let month = date.getMonth();
+let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+todaydate.textContent = months[month] + " " + date.getDate();

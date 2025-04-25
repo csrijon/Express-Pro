@@ -1,41 +1,51 @@
 import express from "express";
 import habitRoutes from "./routes/habit.js";
 import loginRoutes from "./routes/login.js";
-import {Signup} from "./models/schema.js";
+import { Signup } from "./models/schema.js";
 
 const app = express();
 const port = 3000;
 
+// Middleware
 app.use(express.static("public"));
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true })); // <-- Needed for form data!
+app.use(express.json()); // <-- Good to have for API calls
+
+// Routes
 app.use("/habit", habitRoutes);
 app.use("/signup", loginRoutes);
-app.use(express.json());
 
-
-app.get("/",(req,res) => {
-  res.render("signup");
+// Views
+app.get("/", (req, res) => {
+  res.render("signup"); // login/signup page
 });
+
 app.get("/index", (req, res) => {
-  res.render("index");
-})
+  res.render("index"); // after login success
+});
+
 app.post("/signup", async (req, res) => {
   const { Name, Email, Password } = req.body;
-  const newsignup = new Signup({Name, Email, Password});
-  console.log(Name, Email, Password);
+  const newsignup = new Signup({ Name, Email, Password });
   await newsignup.save();
-})
+  console.log("User signed up:", Name, Email);
+  res.redirect("/"); // Go to login page
+});
+
 app.post("/login", async (req, res) => {
-  const {Loginemail, Loginpassword} = req.body;
-  const user = await Signup.findOne({Email: Loginemail, Password: Loginpassword});
+  const { Loginemail, Loginpassword } = req.body;
+  const user = await Signup.findOne({ Email: Loginemail, Password: Loginpassword });
   if (user) {
-    console.log("kam khatam");
+    console.log("Login successful:", user.Email);
     res.redirect("/index");
-   console.log("done")
-  }else{
-    console.log("not done")
   }
-})
+   else {
+    console.log("Login failed");
+    res.send("Invalid email or password");
+  }
+});
+
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`App running on http://localhost:${port}`);
 });

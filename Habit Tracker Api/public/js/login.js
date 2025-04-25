@@ -35,14 +35,29 @@ signup.addEventListener("submit",async (e) => {
 
 
 let login = document.querySelector("#login");
-login.addEventListener("submit",() => {
-    let Loginemail = document.querySelector(".Loginemail").value;
-    let Loginpassword = document.querySelector(".Loginpassword").value;
-  let loginresponse = fetch("/login", {
-      method : "POST",
-      headers :{
-          "Content-Type": "application/json"
+login.addEventListener("submit", async (event) => {
+  event.preventDefault(); // Prevent default form submission behavior
+
+  let Loginemail = document.querySelector(".Loginemail").value;
+  let Loginpassword = document.querySelector(".Loginpassword").value;
+
+  try {
+    let loginresponse = await fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({Loginemail, Loginpassword})})
-  let logindata = loginresponse.json();
-})
+      body: JSON.stringify({ Loginemail, Loginpassword }),
+    });
+
+    if (loginresponse.ok) {
+      // Redirect to /index page after successful login
+      window.location.href = "/index"; 
+    } else {
+      let logindata = await loginresponse.json(); // Only call json() if response is not ok
+      console.log("Login failed", logindata);
+    }
+  } catch (error) {
+    console.log("Error during login:", error);
+  }
+});
