@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("fabicon element not found!");
     }
   });
-  
 let date = new Date();
 let todaydate = document.querySelector(".today-date");
 let month = date.getMonth();
