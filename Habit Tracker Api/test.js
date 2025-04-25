@@ -1,10 +1,14 @@
 let time = new Date();
-let day = time.getDay();
-// console.log(day.toString());
 
-let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-// console.log(days[day]);
+let todaydate = time.getDate();
 
-let date = time.getDate();
-console.log(days[day] );
+console.log(todaydate);
 
+let dayindex = time.getDay();
+let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"];
+console.log(dayindex);
+
+for (let i = 0; i < 7; i++) {
+    let nowdate = todaydate +(i - dayindex);
+    console.log(nowdate);
+}
