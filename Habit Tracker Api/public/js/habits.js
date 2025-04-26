@@ -22,5 +22,18 @@ addbtn.addEventListener("click",() => {
     let habitname = document.querySelector("#habit-name").value;
     let periodday = selectday;
     let periodreminder = selectedreminder;
-}
-)
+    console.log(habitname,periodday,periodreminder);
+
+    const habitdata = {
+        habitsname: habitname,
+        habitday : periodday,
+        habittime : periodreminder
+    }
+    let habitresponse = fetch("/addhabit", {
+        method : "POST",
+        headers: {
+             "Content-Type": "application/json"
+        }
+        ,body: JSON.stringify(habitdata)
+    })
+});

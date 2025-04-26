@@ -8,4 +8,11 @@ const loginSchema = new mongoose.Schema({
     Password: String
 });
 
+const addhabitSchema = new mongoose.Schema({
+    habitsname: String,
+    habitday: String,
+    habittime: String
+})
+
  export const Signup = mongoose.model("Signup", loginSchema)
+ export const Addhabit = mongoose.model("Addhabit", addhabitSchema)

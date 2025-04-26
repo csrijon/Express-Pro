@@ -1,7 +1,7 @@
 import express from "express";
 import habitRoutes from "./routes/habit.js";
 import loginRoutes from "./routes/login.js";
-import { Signup } from "./models/schema.js";
+import { Signup, Addhabit } from "./models/schema.js";
 
 const app = express();
 const port = 3000;
@@ -45,6 +45,12 @@ app.post("/login", async (req, res) => {
     res.send("Invalid email or password");
   }
 });
+app.post("/addhabit", (req, res) => {
+  const { habitsname, habitday, habittime } = req.body;
+  console.log(habitsname, habitday, habittime);
+  const userhabit = new Addhabit({ habitsname, habitday, habittime });
+  userhabit.save();
+})
 
 app.listen(port, () => {
   console.log(`App running on http://localhost:${port}`);
