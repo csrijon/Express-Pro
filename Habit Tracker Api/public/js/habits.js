@@ -1,3 +1,7 @@
+// document.addEventListener('DOMContentLoaded', () => {
+//     gethabit();
+//   });
+
 let daysclick = document.querySelectorAll(".day");
 let reminderclick = document.querySelectorAll(".reminder");
 let selectday = "";
@@ -39,9 +43,3 @@ addbtn.addEventListener("click",async () => {
     
 });
 
- async function gethabit() {
-    const gethabitresponse = await fetch("/fetchhabit")
-    const gethabitdata = await gethabitresponse.json();
-    console.log(gethabitdata);
-}
-gethabit();
