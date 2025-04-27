@@ -3,8 +3,9 @@ import habitRoutes from "./routes/habit.js";
 import loginRoutes from "./routes/login.js";
 import { Signup, Addhabit } from "./models/schema.js";
 
+
 const app = express();
-const port = 3000;
+const port = 5000;
 
 // Middleware
 app.use(express.static("public"));
@@ -27,11 +28,17 @@ app.get("/index", (req, res) => {
 
 app.post("/signup", async (req, res) => {
   const { Name, Email, Password } = req.body;
-  const newsignup = new Signup({ Name, Email, Password });
-  await newsignup.save();
-  console.log("User signed up:", Name, Email);
-  res.redirect("/"); // Go to login page
+  try {
+    const newsignup = new Signup({ Name, Email, Password });
+    await newsignup.save();
+    console.log("User signed up:", Name, Email);
+    res.redirect("/"); // Redirect to login page after successful signup
+  } catch (error) {
+    console.error("Signup failed:", error);
+    res.status(500).json({ error: "Signup failed" }); // Send error response if signup fails
+  }
 });
+
 
 app.post("/login", async (req, res) => {
   const { Loginemail, Loginpassword } = req.body;
@@ -45,6 +52,7 @@ app.post("/login", async (req, res) => {
     res.send("Invalid email or password");
   }
 });
+
 app.post("/addhabit", (req, res) => {
   const { habitsname, habitday, habittime } = req.body;
   console.log(habitsname, habitday, habittime);

@@ -18,7 +18,7 @@ reminderclick.forEach(reminder => {
 });
 
 let addbtn = document.querySelector(".add-btn"); 
-addbtn.addEventListener("click",() => {
+addbtn.addEventListener("click",async () => {
     let habitname = document.querySelector("#habit-name").value;
     let periodday = selectday;
     let periodreminder = selectedreminder;
@@ -29,13 +29,14 @@ addbtn.addEventListener("click",() => {
         habitday : periodday,
         habittime : periodreminder
     }
-    let habitresponse = fetch("/addhabit", {
+    let habitresponse =await fetch("/addhabit", {
         method : "POST",
         headers: {
              "Content-Type": "application/json"
         }
         ,body: JSON.stringify(habitdata)
     })
+    
 });
 
  async function gethabit() {
@@ -43,5 +44,4 @@ addbtn.addEventListener("click",() => {
     const gethabitdata = await gethabitresponse.json();
     console.log(gethabitdata);
 }
-
 gethabit();

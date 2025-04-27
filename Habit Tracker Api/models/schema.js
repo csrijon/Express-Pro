@@ -1,6 +1,13 @@
 import mongoose from "mongoose";
 
-await mongoose.connect("mongodb://127.0.0.1:27017/habit-tracker");
+// await mongoose.connect("mongodb://127.0.0.1:27017/habit-tracker");
+mongoose.connect("mongodb://127.0.0.1:27017/habit-tracker")
+  .then(() => {
+    console.log("MongoDB connected successfully ✅");
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error ❌", err);
+  });
 
 const loginSchema = new mongoose.Schema({
     Name: String,
