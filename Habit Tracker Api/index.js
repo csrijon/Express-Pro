@@ -51,7 +51,10 @@ app.post("/addhabit", (req, res) => {
   const userhabit = new Addhabit({ habitsname, habitday, habittime });
   userhabit.save();
 })
-
+app.get("/fetchhabit",async (req, res) => {
+  const userhabit =await Addhabit.find();
+  res.send(userhabit);
+})
 app.listen(port, () => {
   console.log(`App running on http://localhost:${port}`);
 });

@@ -37,3 +37,11 @@ addbtn.addEventListener("click",() => {
         ,body: JSON.stringify(habitdata)
     })
 });
+
+ async function gethabit() {
+    const gethabitresponse = await fetch("/fetchhabit")
+    const gethabitdata = await gethabitresponse.json();
+    console.log(gethabitdata);
+}
+
+gethabit();
