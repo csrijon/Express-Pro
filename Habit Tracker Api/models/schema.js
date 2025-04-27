@@ -16,3 +16,4 @@ const addhabitSchema = new mongoose.Schema({
 
  export const Signup = mongoose.model("Signup", loginSchema)
  export const Addhabit = mongoose.model("Addhabit", addhabitSchema)
+ 
