@@ -16,10 +16,28 @@ const loginSchema = new mongoose.Schema({
 });
 
 const addhabitSchema = new mongoose.Schema({
-    habitsname: String,
-    habitday: String,
-    habittime: String
-})
+  habitsname: {
+      type: String,
+      required: true,
+      trim: true
+  },
+  habitday: {
+      type: String,
+      required: true,
+      trim: true
+  },
+  habittime: {
+      type: String,
+      required: true,
+      trim: true
+  },
+  userid: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Signup",
+      required: true
+  }
+});
+
 
  export const Signup = mongoose.model("Signup", loginSchema)
  export const Addhabit = mongoose.model("Addhabit", addhabitSchema)
