@@ -20,8 +20,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
-
-// Routes
 app.use("/habit", habitRoutes);
 app.use("/signup", loginRoutes);
 
@@ -83,7 +81,6 @@ const verifyToken = (req, res, next) => {
     return res.status(401).json({ error: "Invalid token" });
   }
 };
-
 // Add Habit Route (Protected with Token)
 app.post("/addhabit", verifyToken, async (req, res) => {
   const { habitsname, habitday, habittime } = req.body;
@@ -104,7 +101,6 @@ app.post("/addhabit", verifyToken, async (req, res) => {
     res.status(500).json({ error: "Failed to add habit" });
   }
 });
-
 // Fetch Habit Route (Protected with Token)
 app.get("/fetchhabit", verifyToken, async (req, res) => {
   try {
@@ -115,7 +111,6 @@ app.get("/fetchhabit", verifyToken, async (req, res) => {
     res.status(500).json({ error: "Failed to fetch habits" });
   }
 });
-
 // Server start
 app.listen(port, () => {
   console.log(`App running on http://localhost:${port}`);

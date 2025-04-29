@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
         if (habitresponse.ok) {
           alert("Habit added successfully!");
+          
         } else {
           const errorData = await habitresponse.json();
           alert(`Failed to add habit: ${errorData.error || 'Unknown error'}`);
